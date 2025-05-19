@@ -24,12 +24,12 @@ client.on('messageCreate',async message => {
     const response = await ollama.chat({
       model: 'llama3.2:1b',
       messages: [{ role: 'user', content: message.content.substring("3") },
-         {content: ` - Respond in 1-3 words MAX. 
+         {content: ` - Respond in 10-30 words MAX. 
         - If unsure, say "IDK".
         - Be blunt and concise.`, role:"system"},],
       options: {
         num_predict: 100,
       }
     })
-    message.reply(response.message.content)
+    message.reply("ai "+response.message.content.replace("<|start_header_id|>assistant<|end_header_id|>",""))
   }})
