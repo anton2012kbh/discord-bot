@@ -19,7 +19,7 @@ client.on('ready', () => {
 client.login(process.env.bot_token);
 
 client.on('messageCreate',async message => {
-  if (message.author.bot) return;
+  if (message.author.id=="1366454694704185364") return;
   if (message.content.toLowerCase().includes("ai")){
     const response = await ollama.chat({
       model: 'llama3.2:1b',
